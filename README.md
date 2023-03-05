@@ -1,4 +1,4 @@
-# mruby-esp32-dino-core
+# mruby-dino-core-esp32
 
 mruby implementation of the core [dino](https://github.com/austinbv/dino) features, running directly on the ESP32 chip. Depends on [mruby-esp32](https://github.com/mruby-esp32).
 
