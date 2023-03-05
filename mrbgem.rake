@@ -1,6 +1,6 @@
 require_relative "mrblib/version"
 
-MRuby::Gem::Specification.new('mruby-esp32-dino-core') do |spec|
+MRuby::Gem::Specification.new('mruby-dino-core-esp32') do |spec|
   spec.license = 'MIT'
   spec.authors = 'vickash'
   spec.version = Dino::VERSION
