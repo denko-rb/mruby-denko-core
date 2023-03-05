@@ -37,6 +37,7 @@ MRuby::Gem::Specification.new('mruby-dino-core-esp32') do |spec|
   
   # Include files in the right order.
   spec.rbfiles = [
+    "#{dir}/mrblib/system.rb",
     "#{dir}/mrblib/version.rb",
     "#{dir}/mrblib/pins.rb",
     "#{dir}/mrblib/pin_base.rb",
