@@ -19,7 +19,7 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
 * Components do not implement `_read`, `_poll` or `_listen`. The user must call `component#read` somewhere in their loop. Callbacks will trigger when this is done though.
 * Components do not implement `Dino::Mixins::Threaded` for doing "background" tasks like `Led#blink`, since there is only one thread.
 
-* No distinction between `DigitalOutput` and `DigitalInput` components, just `Pins::Digital` that can act as both.
+* `DigitalOutput` and `DigitalInput` components are both replaced by `Pins::Digital`, which can act as both.
 * The `AnalogOutput` class is replaced by `Pins::DACOutput` and `Pins::PWMOutput`, for DAC and PWM output respectively.
 * The `pullup:` and `pulldown:` options will do nothing when initializing a component. The ESP32 handles that within pin mode setting. Use `component#mode=` instead. The valid modes are:
    * `:input`
