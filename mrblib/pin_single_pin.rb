@@ -1,7 +1,6 @@
 module Pins
   module SinglePin
     include Base
-    include ESP32::GPIO
     
     attr_accessor :pin, :mode
     

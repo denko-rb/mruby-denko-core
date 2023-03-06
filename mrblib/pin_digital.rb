@@ -3,6 +3,9 @@ module Pins
     include SinglePin
     include Callbacks
     
+    HIGH = 1
+    LOW = 0
+    
     # Reading methods
     def _read
       board.digital_read(pin)

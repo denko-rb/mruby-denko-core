@@ -1,6 +1,6 @@
 require_relative "mrblib/version"
 
-MRuby::Gem::Specification.new('mruby-dino-core-esp32') do |spec|
+MRuby::Gem::Specification.new('mruby-dino-core') do |spec|
   spec.license = 'MIT'
   spec.authors = 'vickash'
   spec.version = Dino::VERSION
@@ -28,18 +28,10 @@ MRuby::Gem::Specification.new('mruby-dino-core-esp32') do |spec|
   spec.add_dependency('mruby-symbol-ext')
   spec.add_dependency('mruby-toplevel-ext')
   
-  # Dependencies from mruby-esp32 project.
-  spec.add_dependency('mruby-esp32-system', github: 'mruby-esp32/mruby-esp32-system')
-  spec.add_dependency('mruby-esp32-gpio',   github: 'mruby-esp32/mruby-esp32-gpio')
-  spec.add_dependency('mruby-io',           github: 'mruby-esp32/mruby-io', :branch => 'esp32')
-  
   # Include files in the right order.
   spec.rbfiles = [
-    "#{dir}/mrblib/system.rb",
     "#{dir}/mrblib/version.rb",
-    "#{dir}/mrblib/board.rb",
     "#{dir}/mrblib/callbacks.rb",
-    "#{dir}/mrblib/pins.rb",
     "#{dir}/mrblib/pin_base.rb",
     "#{dir}/mrblib/pin_single_pin.rb",
     "#{dir}/mrblib/pin_digital.rb",
