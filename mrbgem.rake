@@ -30,8 +30,8 @@ MRuby::Gem::Specification.new('mruby-dino-core-esp32') do |spec|
   
   # Dependencies from mruby-esp32 project.
   spec.add_dependency('mruby-esp32-system', github: 'mruby-esp32/mruby-esp32-system')
-  spec.add_dependency('mruby-esp32-wifi',   github: 'mruby-esp32/mruby-esp32-wifi')
-  spec.add_dependency('mruby-esp32-mqtt',   github: 'mruby-esp32/mruby-esp32-mqtt')
+  # spec.add_dependency('mruby-esp32-wifi',   github: 'mruby-esp32/mruby-esp32-wifi')
+  # spec.add_dependency('mruby-esp32-mqtt',   github: 'mruby-esp32/mruby-esp32-mqtt')
   spec.add_dependency('mruby-esp32-gpio',   github: 'mruby-esp32/mruby-esp32-gpio')
   spec.add_dependency('mruby-io',           github: 'mruby-esp32/mruby-io', :branch => 'esp32')
   
