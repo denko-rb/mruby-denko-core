@@ -37,6 +37,7 @@ MRuby::Gem::Specification.new('mruby-dino-core-esp32') do |spec|
   spec.rbfiles = [
     "#{dir}/mrblib/system.rb",
     "#{dir}/mrblib/version.rb",
+    "#{dir}/mrblib/board.rb",
     "#{dir}/mrblib/callbacks.rb",
     "#{dir}/mrblib/pins.rb",
     "#{dir}/mrblib/pin_base.rb",

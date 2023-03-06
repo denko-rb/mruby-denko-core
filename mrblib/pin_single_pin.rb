@@ -6,7 +6,7 @@ module Pins
     attr_accessor :pin, :mode
     
     def initialize_pins(options={})
-      mapped_pin = Pins.map_pin(options[:pin])
+      mapped_pin = board.map_pin(options[:pin])
       raise "invalid pin given: #{options[:pin]}" unless mapped_pin
       
       options[:pin] = mapped_pin
@@ -14,14 +14,7 @@ module Pins
     end
     
     def mode=(mode)
-      case mode
-      when :input_pullup;   ESP32::GPIO.pin_mode(pin, ESP32::GPIO::INPUT_PULLUP)
-      when :input_pulldown; ESP32::GPIO.pin_mode(pin, ESP32::GPIO::INPUT_PULLDOWN)
-      when :input;          ESP32::GPIO.pin_mode(pin, ESP32::GPIO::INPUT)
-      when :output;         ESP32::GPIO.pin_mode(pin, ESP32::GPIO::INPUT_OUTPUT)
-      when :input_output;   ESP32::GPIO.pin_mode(pin, ESP32::GPIO::INPUT_OUTPUT)  
-      else raise "invalid pin mode given: #{mode}"
-      end
+      board.pin_mode(self.pin, mode)
     end
   end
 end

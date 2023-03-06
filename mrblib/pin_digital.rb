@@ -5,7 +5,7 @@ module Pins
     
     # Reading methods
     def _read
-      ESP32::GPIO.digital_read(pin)
+      board.digital_read(pin)
     end
     
     def on_high(&block)
@@ -27,7 +27,7 @@ module Pins
     
     # Writing methods
     def digital_write(value)
-      ESP32::GPIO.digital_write(pin, value)
+      board.digital_write(pin, value)
       self.state = value
     end
     

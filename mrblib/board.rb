@@ -1,5 +1,36 @@
-module Pins
+class Board
   include ESP32::GPIO
+  
+  def pin_mode(gpio, mode)
+    case mode
+    when :input_pullup;   ESP32::GPIO.pin_mode(gpio, ESP32::GPIO::INPUT_PULLUP)
+    when :input_pulldown; ESP32::GPIO.pin_mode(gpio, ESP32::GPIO::INPUT_PULLDOWN)
+    when :input;          ESP32::GPIO.pin_mode(gpio, ESP32::GPIO::INPUT)
+    when :output;         ESP32::GPIO.pin_mode(gpio, ESP32::GPIO::INPUT_OUTPUT)
+    when :input_output;   ESP32::GPIO.pin_mode(gpio, ESP32::GPIO::INPUT_OUTPUT)  
+    else raise "invalid mode given: #{mode}"
+    end
+  end
+  
+  def digital_write(pin, value)
+    ESP32::GPIO.digital_write(pin, value)
+  end
+  
+  def digital_read(pin)
+    ESP32::GPIO.digital_read(pin)
+  end
+  
+  def dac_write(dac_channel, value)
+    ESP32::GPIO.analog_write(dac_channel, value)
+  end
+  
+  def adc_read(adc_channel)
+    ESP32::GPIO.analog_read(adc_channel)
+  end
+  
+  def pwm_write
+  end
+  
   # GPIO map for the original ESP32.
   # Need to change this depending on which variant is being used.
   GPIO_MAP = [
@@ -61,15 +92,17 @@ module Pins
     26 => DAC_CHANNEL_2,
   }
   
-  def self.map_pin(number)
+  def map_pin(number)
     GPIO_MAP[number]
   end
   
-  def self.map_adc(number)
+  def map_adc(number)
     ADC1_MAP[number]
   end
   
-  def self.map_dac(number)
+  def map_dac(number)
     DAC_MAP[number]
   end
 end
+
+$board = Board.new

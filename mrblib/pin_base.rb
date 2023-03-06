@@ -1,10 +1,17 @@
 module Pins
-  module Base    
+  module Base
+    attr_reader :board
+    
     def initialize(options={})
       @state = nil
       before_initialize(options)
+      initialize_board(options)
       initialize_pins(options)
       after_initialize(options)
+    end
+    
+    def initialize_board(options={})
+      @board = options[:board] || $board
     end
     
     def state

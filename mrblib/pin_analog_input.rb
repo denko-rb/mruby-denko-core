@@ -7,7 +7,7 @@ module Pins
     
     def initialize_pins(options={})
       # Find ADC channel for pin as given, before it might get overwritten by GPIO mapping.
-      @adc_channel = Pins.map_adc(options[:pin])
+      @adc_channel = board.map_adc(options[:pin])
       raise "no ADC channel for given pin: #{options[:pin]}" unless @adc_channel
       
       super(options)
@@ -15,7 +15,7 @@ module Pins
     end
         
     def _read
-      ESP32::GPIO.analog_read(adc_channel)
+      board.adc_read(adc_channel)
     end
   end
 end
