@@ -5,7 +5,6 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
 ### Core Features Not Implemented Yet
 
 * PWM output
-* DAC channels probably don't work yet
 
 ### Key Differences
 
@@ -18,6 +17,7 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
   * There is no `Board` class, or `board:` option needed to initialize a component.
   * `Pins::Digital` replaces both `DigitalOutput` and `DigitalInput`.
   * `Pins::DACOutput` and `Pins::PWMOutput` replace `AnalogOutput`.
+  * `DACOuput` is available on GPIO25 and GPIO26.
   * The `pullup:` and `pulldown:` options will do nothing when initializing a component. The ESP32 handles that within pin mode setting. Use `component#mode=` instead. The valid modes are:
      * `:input`
      * `:input_pullup`

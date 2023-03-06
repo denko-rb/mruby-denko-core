@@ -56,11 +56,20 @@ module Pins
     35 => ADC1_CHANNEL_7
   }
   
+  DAC_MAP = {
+    25 => DAC_CHANNEL_1,
+    26 => DAC_CHANNEL_2,
+  }
+  
   def self.map_pin(number)
     GPIO_MAP[number]
   end
   
   def self.map_adc(number)
     ADC1_MAP[number]
+  end
+  
+  def self.map_dac(number)
+    DAC_MAP[number]
   end
 end
