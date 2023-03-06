@@ -7,7 +7,7 @@ module Pins
     
     def initialize_pins(options={})
       mapped_pin = Pins.map_pin(options[:pin])
-      raise "invalid pin given #{options[:pin]}" unless mapped_pin
+      raise "invalid pin given: #{options[:pin]}" unless mapped_pin
       
       options[:pin] = mapped_pin
       self.pin = mapped_pin

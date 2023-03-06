@@ -2,7 +2,7 @@ module Pins
   include ESP32::GPIO
   # GPIO map for the original ESP32.
   # Need to change this depending on which variant is being used.
-  PIN_MAP = [
+  GPIO_MAP = [
     GPIO_NUM_0,
     GPIO_NUM_1,
     GPIO_NUM_2,
@@ -44,7 +44,23 @@ module Pins
     GPIO_NUM_38,
     GPIO_NUM_39,
   ]
+  
+  ADC1_MAP = {
+    36 => ADC1_CHANNEL_0,
+    37 => ADC1_CHANNEL_1,
+    38 => ADC1_CHANNEL_2,
+    39 => ADC1_CHANNEL_3,
+    32 => ADC1_CHANNEL_4,
+    33 => ADC1_CHANNEL_5,
+    34 => ADC1_CHANNEL_6,
+    35 => ADC1_CHANNEL_7
+  }
+  
   def self.map_pin(number)
-    PIN_MAP[number]
+    GPIO_MAP[number]
+  end
+  
+  def self.map_adc(number)
+    ADC1_MAP[number]
   end
 end
