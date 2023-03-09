@@ -4,38 +4,35 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
 
 ### Core Features Not Implemented Yet
 
-* PWM output
+* PWMOut (Needs to add LEDC functions from C)
 
 ### Key Differences
 
 * Namespace:
-  * Low-level components are inside `Pins`, rather than `Dino::Components::Basic` or `Dino::Components::Setup`.
-  * Higher level components will go in the top level namespace, not `Dino::Components`.
-  * The `Dino` namespace isn't really used, expect to set the version number.
-  
+  * Naming is different to the main Ruby gem, but that will probably be updated to match this. Most importantly, the `Components` module isn't being used and most components will be at the top level of the `Dino` namespace.
+
 * Component Differences:
-  * There is no `Board` class, or `board:` option needed to initialize a component.
-  * `Pins::Digital` replaces both `DigitalOutput` and `DigitalInput`.
-  * `Pins::DACOutput` and `Pins::PWMOutput` replace `AnalogOutput`.
-  * `DACOuput` is available on GPIO25 and GPIO26.
-  * The `pullup:` and `pulldown:` options will do nothing when initializing a component. The ESP32 handles that within pin mode setting. Use `component#mode=` instead. The valid modes are:
+  * Components can initialize with a `board:` option, for future board proxy components, but it is not required. It will default to the global variable `$board` which is an instance representing the ESP32 board itself.
+  * `DigitalIO` replaces both `DigitalOutput` and `DigitalInput`.
+  * `DACOut` and `PWMout` both replace `AnalogOutput`.
+  * `AnalogIn` replaces `AnalogInput`.
+  * `DACOut` is available on GPIO25 and GPIO26.
+  * The `pullup:` and `pulldown:` options will do nothing when initializing a component. The ESP32 handles that within pin mode setting. Use `mode:` in options hash instead. The valid modes are:
      * `:input`
      * `:input_pullup`
      * `:input_pulldown`
      * `:input_output`
      * `:output`
-  * Will add a `mode:` option to the single pin initilization hash too.
-  * `AnalogInput` only works for ADC1, on these GPIOs pins: 32, 33, 34, 35, 36/SensVP, 39/SensVN
-  * `AnalogInput` defaults to 12 bits.
+  * `AnalogIn` only works for ADC1, on these GPIOs pins: 32, 33, 34, 35, 36/SensVP, 39/SensVN
+  * `AnalogIn` defaults to 12 bits.
 
 * Threading:
   * Components do not implement `Dino::Mixins::Threaded` for doing "background" tasks like `Led#blink`, since there is only one thread.
   * `Component#state` is not protected by a mutex, since no threading.
   
 * Inputs & Callbacks:
-  * Components don't implement `#_poll`, `#poll`, `#_listen` or `#listen`, since single thread.
-  * Components implement `#_read`, which reads and returns the value immediately, without filtering, running callbacks, or updating `state` with it. Might be useful for speed?
-  * Components implement `#read`, which reads the value, filters it, then runs callbacks and updates `state`.
+  * Callbacks are NOT included by default on any of the low level components that might be rapidly polled. Hash and Array enumeration is just too slow. Will implement it for slower reading senors only, or maybe an alternative implementation with a single callback instead of many.
+  * Components don't implement `#_poll`, `#poll`, `#_listen` or `#listen`, and in most cases no `#_read` either, just `#read`. User is responsible for reading the component as needed.
   * The `#on_data` callback adder has been renamed to `#on_read`.
-  * User is responsible for calling `#read` or `#_read` as needed.
-  * Callbacks are not protected by a mutex, since no threading.
+  * Callbacks and state are not protected by mutexes, since no direct interaction between mruby processes.
+  

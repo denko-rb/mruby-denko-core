@@ -1,12 +1,12 @@
-module Pins
+module Dino
   module MultiPin
     #
     # Model complex components, using multiple pins, by using proxy components
     # with one pin each. 
     #
-    include Base
+    include Component
     attr_accessor :pins, :proxies
-    
+  
     def proxy_states
       hash = Hash.new
       proxies.each_key do |key|
@@ -21,7 +21,7 @@ module Pins
       self.proxies = {}
       super(options)
     end
-    
+  
     #
     # Proxy a pin to a single-pin component. Set this up in the including
     # component's #initialize_pins method. Additional options for each proxy
@@ -30,7 +30,7 @@ module Pins
     def proxy_pin(name, klass, pin_options={})
       # Proxied pins are required by default.
       require_pin(name) unless pin_options[:optional]
-      
+    
       # Make the proxy if the pin was given.
       if self.pins[name]      
         proxy = klass.new pin_options.merge(pin: self.pins[name])
@@ -43,14 +43,14 @@ module Pins
       # Accessor for the proxy, or nil if not given, and not required.
       singleton_class.class_eval { attr_reader name }
     end
-    
+  
     #
     # Require a single pin that may or may not be proxied.
     #
     def require_pin(name)
       raise ArgumentError, "missing :#{name} pin" unless self.pins[name]
     end
-  
+
     def require_pins(*array)
       [array].flatten.each { |name| require_pin(name) }
     end

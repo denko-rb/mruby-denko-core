@@ -32,12 +32,12 @@ MRuby::Gem::Specification.new('mruby-dino-core') do |spec|
   spec.rbfiles = [
     "#{dir}/mrblib/version.rb",
     "#{dir}/mrblib/callbacks.rb",
-    "#{dir}/mrblib/pin_base.rb",
-    "#{dir}/mrblib/pin_single_pin.rb",
-    "#{dir}/mrblib/pin_digital.rb",
-    "#{dir}/mrblib/pin_analog_input.rb",
-    "#{dir}/mrblib/pin_pwm_output.rb",
-    "#{dir}/mrblib/pin_dac_output.rb",
-    "#{dir}/mrblib/pin_multi_pin.rb",
+    "#{dir}/mrblib/component.rb",
+    "#{dir}/mrblib/pin.rb",
+    "#{dir}/mrblib/digital_io.rb",
+    "#{dir}/mrblib/pwm_out.rb",
+    "#{dir}/mrblib/dac_out.rb",
+    "#{dir}/mrblib/analog_in.rb",
+    "#{dir}/mrblib/multi_pin.rb",
   ]
 end
