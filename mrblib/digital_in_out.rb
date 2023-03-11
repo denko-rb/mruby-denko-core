@@ -1,5 +1,5 @@
 module Dino
-  class DigitalIO
+  class DigitalInOut
     include Pin
   
     HIGH = 1

@@ -1,5 +1,5 @@
 module Dino
-  class PWMOut < DigitalIO
+  class PWMOut < DigitalInOut
     # No LEDC implementation yet
   
     def write(value)

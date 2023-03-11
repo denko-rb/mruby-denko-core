@@ -34,9 +34,9 @@ MRuby::Gem::Specification.new('mruby-dino-core') do |spec|
     "#{dir}/mrblib/callbacks.rb",
     "#{dir}/mrblib/component.rb",
     "#{dir}/mrblib/pin.rb",
-    "#{dir}/mrblib/digital_io.rb",
+    "#{dir}/mrblib/digital_in_out.rb",
     "#{dir}/mrblib/pwm_out.rb",
-    "#{dir}/mrblib/dac_out.rb",
+    "#{dir}/mrblib/analog_out.rb",
     "#{dir}/mrblib/analog_in.rb",
     "#{dir}/mrblib/multi_pin.rb",
   ]

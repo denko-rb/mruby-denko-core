@@ -1,5 +1,5 @@
 module Dino
-  class DACOut
+  class AnalogOut
     include Pin
   
     attr_reader :dac_channel
