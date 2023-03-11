@@ -15,6 +15,14 @@ module Dino
       self.previous_state = state
       self.state = board.digital_read(pin)
     end
+    
+    def rose?
+      (previous_state == 0) && (state == 1)
+    end
+    
+    def fell?
+      (previous_state == 1) && (state == 0)
+    end
   
     # Writing methods
     def digital_write(value)
