@@ -17,11 +17,11 @@ module Dino
     end
     
     def rose?
-      (previous_state == 0) && (state == 1)
+      (previous_state == LOW) && (state == HIGH)
     end
     
     def fell?
-      (previous_state == 1) && (state == 0)
+      (previous_state == HIGH) && (state == LOW)
     end
   
     # Writing methods
