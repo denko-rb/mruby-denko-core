@@ -13,16 +13,16 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
 
 * Component Differences:
   * Components can initialize with a `board:` option, for future board proxy components, but it is not required. It will default to the global variable `$board` which is an instance representing the ESP32 board itself.
-  * `DigitalIO` replaces both `DigitalOutput` and `DigitalInput`.
-  * `DACOut` and `PWMout` both replace `AnalogOutput`.
-  * `AnalogIn` replaces `AnalogInput`.
-  * `DACOut` is available on GPIO25 and GPIO26.
   * The `pullup:` and `pulldown:` options will do nothing when initializing a component. The ESP32 handles that within pin mode setting. Use `mode:` in options hash instead. The valid modes are:
      * `:input`
      * `:input_pullup`
      * `:input_pulldown`
      * `:input_output`
      * `:output`
+  * `DigitalInOut` replaces both `DigitalOutput` and `DigitalInput`.
+  * `AnalogOut` and `PWMOut` replace `AnalogOutput`.
+  * `AnalogOut` is for pins with DACs only: GPIO25 and GPIO26. `PWMOut` works on any PWM-capable pin and will not use the DAC.
+  * `AnalogIn` replaces `AnalogInput`.
   * `AnalogIn` only works for ADC1, on these GPIOs pins: 32, 33, 34, 35, 36/SensVP, 39/SensVN
   * `AnalogIn` defaults to 12 bits.
 
@@ -32,7 +32,7 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
   
 * Inputs & Callbacks:
   * Callbacks are NOT included by default on any of the low level components that might be rapidly polled. Hash and Array enumeration is just too slow. Will implement it for slower reading senors only, or maybe an alternative implementation with a single callback instead of many.
+  * Some components will implement `#previous_state` for easy comparison after reading.
   * Components don't implement `#_poll`, `#poll`, `#_listen` or `#listen`, and in most cases no `#_read` either, just `#read`. User is responsible for reading the component as needed.
   * The `#on_data` callback adder has been renamed to `#on_read`.
   * Callbacks and state are not protected by mutexes, since no direct interaction between mruby processes.
-  
