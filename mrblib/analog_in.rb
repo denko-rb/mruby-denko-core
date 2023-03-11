@@ -13,8 +13,8 @@ module Dino
       self.mode = :input
     end
       
-    def _read
-      board.adc_read(adc_channel)
+    def read
+      self.state = board.adc_read(adc_channel)
     end
   end
 end
