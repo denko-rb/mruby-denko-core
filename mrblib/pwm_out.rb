@@ -21,6 +21,10 @@ module Dino
       write 255
     end
     
+    def toggle
+      (self.state == 0) ? on : off
+    end
+      
     def write(value)
       board.pwm_write(pwm_channel, value)
       self.state = value
