@@ -2,9 +2,11 @@
 
 mruby implementation of the core [dino](https://github.com/austinbv/dino) features, running directly on the ESP32 chip. Depends on [mruby-esp32](https://github.com/mruby-esp32).
 
-### Core Features Not Implemented Yet
+### Missing Features
 
-* PWMOut (Needs to add LEDC functions from C)
+* PWMOut resolution and frequency is not configurable yet. Always 8-bit at 1kHz for now (Arduino defaults).
+* Can't request specific PWM (LEDC for ESP32) channels and timers from the board yet. Distributed them in the ESP32 gem to match Arduino defaults. Could make this more configurable.
+* DAC and ADC resolutions are not configureable yet. DAC is 8-bit output, ADC is 12-bit input.
 
 ### Key Differences
 
@@ -21,7 +23,8 @@ mruby implementation of the core [dino](https://github.com/austinbv/dino) featur
      * `:output`
   * `DigitalInOut` replaces both `DigitalOutput` and `DigitalInput`.
   * `AnalogOut` and `PWMOut` replace `AnalogOutput`.
-  * `AnalogOut` is for pins with DACs only: GPIO25 and GPIO26. `PWMOut` works on any PWM-capable pin and will not use the DAC.
+  * `AnalogOut` is for pins with DACs only: GPIO25 and GPIO26.
+  * `PWMOut` works on any PWM-capable pin and will not use the DAC. Defaults to 8-bit resolution and 1kHz.
   * `AnalogIn` replaces `AnalogInput`.
   * `AnalogIn` only works for ADC1, on these GPIOs pins: 32, 33, 34, 35, 36/SensVP, 39/SensVN
   * `AnalogIn` defaults to 12 bits.
