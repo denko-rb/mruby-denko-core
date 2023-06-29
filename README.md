@@ -1,4 +1,4 @@
-# mruby-denko-coreio
+# mruby-denko-core_io
 
 mruby implementation of the core [denko](https://github.com/denko-rb/denko) IO classes, running directly on the ESP32 chip.
 

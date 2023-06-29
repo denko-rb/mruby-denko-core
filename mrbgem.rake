@@ -1,6 +1,6 @@
 require_relative "mrblib/version"
 
-MRuby::Gem::Specification.new('mruby-denko-coreio') do |spec|
+MRuby::Gem::Specification.new('mruby-denko-core_io') do |spec|
   spec.license = 'MIT'
   spec.authors = 'vickash'
   spec.version = Denko::CoreIO::VERSION
