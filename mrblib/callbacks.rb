@@ -1,4 +1,4 @@
-module Dino
+module Denko
   module Callbacks
     attr_reader :callbacks
   

@@ -1,4 +1,4 @@
-module Dino
+module Denko
   class DigitalInOut
     include Pin
   

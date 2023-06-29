@@ -1,4 +1,4 @@
-module Dino
+module Denko
   module Pin
     include Component
   

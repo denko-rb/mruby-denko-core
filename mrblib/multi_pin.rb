@@ -1,4 +1,4 @@
-module Dino
+module Denko
   module MultiPin
     #
     # Model complex components, using multiple pins, by using proxy components

@@ -1,4 +1,4 @@
-module Dino
+module Denko
   module Component
     attr_accessor :state, :previous_state
     attr_reader :board
