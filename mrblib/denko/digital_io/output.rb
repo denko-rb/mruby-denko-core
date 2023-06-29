@@ -4,7 +4,7 @@
 #   No Callbacks or reading initial state, so no #after_initialize, no #pre_callback_filter
 #     Maybe default to :input_output mode to make it readable?
 #
-module Dino
+module Denko
   module DigitalIO
     class Output
       include Behaviors::OutputPin

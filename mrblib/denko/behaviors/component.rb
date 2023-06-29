@@ -26,8 +26,13 @@ module Denko
       end
   
       def initialize_board(options={})
-        raise ArgumentError, 'a board is required for a component' unless options[:board]
-        @board = options[:board] || $board
+        if options[:board]
+          @board = options[:board]
+        elsif $board
+          @board = $board
+        else
+          raise ArgumentError, 'a board is required for a component'
+        end
       end
   
       # Behaviors::Component only requires a board.

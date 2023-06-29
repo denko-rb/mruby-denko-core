@@ -3,7 +3,7 @@
 #   No Poller, Listener, so no #after_initialize needed, no #_listen
 #   Values will already be integers, so no #pre_callback_filter needed
 #
-module Dino
+module Denko
   module DigitalIO
     class Input
       include Behaviors::InputPin
