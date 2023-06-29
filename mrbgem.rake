@@ -49,5 +49,8 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
     # AnalogIO
     "#{dir}/mrblib/denko/analog_io/input.rb",
     "#{dir}/mrblib/denko/analog_io/output.rb",
+    
+    # PulseIO
+    "#{dir}/mrblib/denko/pulse_io/pwm_output.rb",
   ]
 end
