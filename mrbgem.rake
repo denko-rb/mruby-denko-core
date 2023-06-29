@@ -1,9 +1,9 @@
-require_relative "mrblib/version"
+require_relative "mrblib/denko/version"
 
 MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   spec.license = 'MIT'
   spec.authors = 'vickash'
-  spec.version = Denko::Core::VERSION
+  spec.version = Denko::VERSION
   
   # Core dependencies.
   spec.add_dependency('mruby-array-ext')
@@ -30,13 +30,15 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   
   # Include files in the right order.
   spec.rbfiles = [
-    "#{dir}/mrblib/version.rb",
-    "#{dir}/mrblib/state.rb",
-    "#{dir}/mrblib/callbacks.rb",
-    "#{dir}/mrblib/component.rb",
-    "#{dir}/mrblib/single_pin.rb",
-    "#{dir}/mrblib/multi_pin.rb",
-    "#{dir}/mrblib/input_pin.rb",
-    "#{dir}/mrblib/output_pin.rb",
+    "#{dir}/mrblib/denko/version.rb",
+    "#{dir}/mrblib/denko/behaviors/state.rb",
+    "#{dir}/mrblib/denko/behaviors/callbacks.rb",
+    "#{dir}/mrblib/denko/behaviors/component.rb",
+    "#{dir}/mrblib/denko/behaviors/single_pin.rb",
+    "#{dir}/mrblib/denko/behaviors/multi_pin.rb",
+    "#{dir}/mrblib/denko/behaviors/input_pin.rb",
+    "#{dir}/mrblib/denko/behaviors/output_pin.rb",
+    "#{dir}/mrblib/denko/digital_io/input.rb",
+    "#{dir}/mrblib/denko/digital_io/output.rb",
   ]
 end
