@@ -3,7 +3,7 @@ require_relative "mrblib/version"
 MRuby::Gem::Specification.new('mruby-denko-coreio') do |spec|
   spec.license = 'MIT'
   spec.authors = 'vickash'
-  spec.version = Denko::VERSION
+  spec.version = Denko::CoreIO::VERSION
   
   # Core dependencies.
   spec.add_dependency('mruby-array-ext')
