@@ -40,5 +40,7 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
     "#{dir}/mrblib/denko/behaviors/output_pin.rb",
     "#{dir}/mrblib/denko/digital_io/input.rb",
     "#{dir}/mrblib/denko/digital_io/output.rb",
+    "#{dir}/mrblib/denko/analog_io/input.rb",
+    "#{dir}/mrblib/denko/analog_io/output.rb",
   ]
 end
