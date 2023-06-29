@@ -1,6 +1,7 @@
 #
 # Copied from main gem, except:
 #  No Mutex
+#  #update returns filtered_data
 #
 module Denko
   module Behaviors
@@ -54,6 +55,7 @@ module Denko
         end
 
         update_state(filtered_data)
+        filtered_data
       end
   
       # Override to process data before giving to callbacks and state.

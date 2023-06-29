@@ -31,15 +31,22 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   # Include files in the right order.
   spec.rbfiles = [
     "#{dir}/mrblib/denko/version.rb",
+    
+    # Behaviors
     "#{dir}/mrblib/denko/behaviors/state.rb",
     "#{dir}/mrblib/denko/behaviors/callbacks.rb",
     "#{dir}/mrblib/denko/behaviors/component.rb",
+    "#{dir}/mrblib/denko/behaviors/reader.rb",
     "#{dir}/mrblib/denko/behaviors/single_pin.rb",
     "#{dir}/mrblib/denko/behaviors/multi_pin.rb",
     "#{dir}/mrblib/denko/behaviors/input_pin.rb",
     "#{dir}/mrblib/denko/behaviors/output_pin.rb",
+    
+    # DigitalIO
     "#{dir}/mrblib/denko/digital_io/input.rb",
     "#{dir}/mrblib/denko/digital_io/output.rb",
+    
+    # AnalogIO
     "#{dir}/mrblib/denko/analog_io/input.rb",
     "#{dir}/mrblib/denko/analog_io/output.rb",
   ]
