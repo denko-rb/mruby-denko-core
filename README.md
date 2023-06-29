@@ -1,9 +1,10 @@
 # mruby-denko-core
 
-Core Denko functionality for mruby. Goal is to implement these `Denko` modules/classes, with interfaces as close to the CRuby gem as possible: 
+Core Denko functionality for mruby.
+
+Goal is to implement the `Denko` modules/classes below, with interfaces as close to the [CRuby gem](https://github.com/denko-rb/denko) as possible: 
 
 - `Version`
-
 - `Behaviors`
   - `State`
   - `Component`
@@ -13,16 +14,15 @@ Core Denko functionality for mruby. Goal is to implement these `Denko` modules/c
   - `InputPin`
   - `OutputPin`
   - `MultiPin`
-  
 - `DigitalIO`
   - `Input`
   - `Output`
-  
 - `AnalogIO`
   - `Input`
   - `Output`
-  
 - `PulseIO`
   - `PWMOutput`
 
-This gem also specifies mruby gem dependencies, as needed to achieve similar functionality to the CRuby gem. See `mrbgem.rake` for a full list.
+This gem also specifies any mruby dependencies requried to get similar functionality to CRuby.
+
+See `mrbgem.rake` for a full list.
