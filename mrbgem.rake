@@ -31,9 +31,12 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   # Include files in the right order.
   spec.rbfiles = [
     "#{dir}/mrblib/version.rb",
+    "#{dir}/mrblib/state.rb",
     "#{dir}/mrblib/callbacks.rb",
     "#{dir}/mrblib/component.rb",
-    "#{dir}/mrblib/pin.rb",
+    "#{dir}/mrblib/single_pin.rb",
     "#{dir}/mrblib/multi_pin.rb",
+    "#{dir}/mrblib/input_pin.rb",
+    "#{dir}/mrblib/output_pin.rb",
   ]
 end
