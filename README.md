@@ -23,7 +23,7 @@ Implements the `Denko` modules/classes listed below, with interfaces as close to
 - `PulseIO`
   - `PWMOutput`
 - `LED`
-  - `Base` - `LED.new` creates a new `LED::Base`
+  - `Base` (`LED#new` aliases to `LED::Base.new` like CRuby)
   - `RGB`
 
 ## Usage

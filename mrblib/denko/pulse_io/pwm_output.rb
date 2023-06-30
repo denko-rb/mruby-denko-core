@@ -23,11 +23,11 @@ module Denko
       # Board needs to implement pwm_high, dac_high and adc_high still.
       # 
       def low
-         board.pwm_write(pin, @state=0)
+        board.pwm_write(pin, @state=board.low)
       end
 
       def high
-        board.pwm_write(pin, @state=255)
+        board.pwm_write(pin, @state=board.pwm_high)
       end
       
       def toggle
@@ -37,8 +37,8 @@ module Denko
       alias :off :low
       alias :on  :high
       
-      def high?; state == 255 end
-      def low?;  state == 0   end
+      def high?; state == board.pwm_high end
+      def low?;  state == board.low      end
       
       alias :on?  :high?
       alias :off? :low?
