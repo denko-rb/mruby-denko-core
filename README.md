@@ -4,30 +4,30 @@ Core Denko functionality for mruby.
 
 Implements the `Denko` modules/classes listed below, with interfaces as close to the [CRuby gem](https://github.com/denko-rb/denko) as possible.
 
-- `Version`
-- `Behaviors`
-  - `State`
-  - `Component`
-  - `Callbacks`
-  - `Reader`
-  - `SinglePin`
-  - `InputPin`
-  - `OutputPin`
-  - `MultiPin`
-- `DigitalIO`
-  - `Input`
-  - `Output`
-- `AnalogIO`
-  - `Input`
-  - `Output`
-- `PulseIO`
-  - `PWMOutput`
-- `LED`
-  - `Base` (`LED#new` aliases to `LED::Base.new` like CRuby)
-  - `RGB`
-- `Motor`
-  - `L298` (or other full bridge driver with same interface)
-  - `Stepper` (EasyDriver or compatible interface)
+- Version
+- Behaviors
+  - State
+  - Component
+  - Callbacks
+  - Reader
+  - SinglePin
+  - InputPin
+  - OutputPin
+  - MultiPin
+- DigitalIO
+  - Input
+  - Output
+- AnalogIO
+  - Input
+  - Output
+- PulseIO
+  - PWMOutput
+- LED
+  - Base (`LED#new` aliases to `LED::Base.new` like CRuby)
+  - RGB
+- Motor
+  - L298 (or other full-bridge driver with same interface)
+  - Stepper (EasyDriver or compatible interface)
 
 ## Usage
 
