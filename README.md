@@ -27,6 +27,7 @@ Implements the `Denko` modules/classes listed below, with interfaces as close to
   - `RGB`
 - `Motor`
   - `L298` (or other full bridge driver with same interface)
+  - `Stepper` (EasyDriver or compatible interface)
 
 ## Usage
 

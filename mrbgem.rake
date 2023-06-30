@@ -61,5 +61,6 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
     
     # Motor
     "#{dir}/mrblib/denko/motor/l298.rb",
+    "#{dir}/mrblib/denko/motor/stepper.rb",
   ]
 end
