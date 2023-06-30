@@ -11,22 +11,23 @@ module Denko
     class PWMOutput
       include Behaviors::SinglePin
       
-      def write(value)
-        pwm_write(value)
-      end
-
       def pwm_write(value)
         board.pwm_write(pin, @state=value)
       end
+      alias :write :pwm_write
       
-      # Repeated from DigitalIO::Output. Will replace.
+      # Repeated from DigitalIO::Output.
+      # Not sure if should inherit and switch between PWM and digital modes like CRuby.
+      #
+      # Currently limited to 8-bits.
       # Board needs to implement pwm_high, dac_high and adc_high still.
+      # 
       def low
-        digital_write(0)
+         board.pwm_write(pin, @state=0)
       end
 
       def high
-        digital_write(255)
+        board.pwm_write(pin, @state=255)
       end
       
       def toggle

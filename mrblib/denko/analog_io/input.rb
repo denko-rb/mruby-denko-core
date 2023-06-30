@@ -37,6 +37,7 @@ module Denko
       # ADCs can set this based on gain, so exact voltages can be calculated.
       attr_accessor :volts_per_bit
 
+      # Usable as a "raw" read method.
       def _read
         board.analog_read(pin, negative_pin, gain, sample_rate)
       end
