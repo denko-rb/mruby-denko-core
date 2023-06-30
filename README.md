@@ -25,6 +25,8 @@ Implements the `Denko` modules/classes listed below, with interfaces as close to
 - `LED`
   - `Base` (`LED#new` aliases to `LED::Base.new` like CRuby)
   - `RGB`
+- `Motor`
+  - `L298` (or other full bridge driver with same interface)
 
 ## Usage
 

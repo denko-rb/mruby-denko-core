@@ -1,3 +1,6 @@
+#
+# Copied as-is from CRuby gem.
+#
 module Denko
   module LED
     class RGB
