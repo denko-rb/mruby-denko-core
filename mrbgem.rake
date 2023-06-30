@@ -54,5 +54,9 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
     
     # PulseIO
     "#{dir}/mrblib/denko/pulse_io/pwm_output.rb",
+    
+    # LED
+    "#{dir}/mrblib/denko/led/base.rb",
+    "#{dir}/mrblib/denko/led/rgb.rb",
   ]
 end

@@ -22,7 +22,10 @@ Implements the `Denko` modules/classes listed below, with interfaces as close to
   - `Output`
 - `PulseIO`
   - `PWMOutput`
-  
+- `LED`
+  - `Base` - `LED.new` creates a new `LED::Base`
+  - `RGB`
+
 ## Usage
 
 See [mruby-denko](https://github.com/denko-rb/mruby-denko) for templates.
