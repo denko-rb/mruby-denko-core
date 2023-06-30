@@ -1,6 +1,7 @@
 #
 # Copied from main gem, except;
 #   No Poller, Listener, @divider, #_listen
+#   Don't call #to_i on the read values.
 #
 module Denko
   module AnalogIO
@@ -40,6 +41,36 @@ module Denko
         board.analog_read(pin, negative_pin, gain, sample_rate)
       end
       
+      #
+      # !!mruby-optimization
+      #   Overrides #read from Behaviors::Reader
+      # 
+      def read(&block)
+        add_callback(:read, &block) if block_given?
+        value = board.analog_read(pin, negative_pin, gain, sample_rate)
+        self.update(value)
+      end
+      
+      #
+      # !!mruby-optimization
+      #   Overrides #update from Behaviors::Callbacks
+      #   Ignores nil-checking.
+      # 
+      def update(data)
+        filtered_data = pre_callback_filter(data)
+        
+        @callbacks.each_value do |array|
+          array.each do |callback|
+            callback.call(filtered_data)
+          end
+        end
+        # Remove one-time callbacks added by #read.
+        @callbacks.delete(:read)
+
+        update_state(filtered_data)
+        filtered_data
+      end
+      
       # Attach a callback that only fires when state changes.
       def on_change(&block)
         add_callback(:on_change) do |new_state|
@@ -66,7 +97,7 @@ module Denko
 
       # Convert data to integer, or pass it through smoothing if enabled.
       def pre_callback_filter(value)
-        smoothing ? smooth_input(value.to_i) : value.to_i
+        smoothing ? smooth_input(value) : value
       end
     end
   end

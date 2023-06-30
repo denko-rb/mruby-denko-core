@@ -6,6 +6,8 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   spec.version = Denko::VERSION
   
   # Core dependencies.
+  spec.add_dependency('mruby-method')
+  
   spec.add_dependency('mruby-array-ext')
   spec.add_dependency('mruby-bigint')
   spec.add_dependency('mruby-class-ext')

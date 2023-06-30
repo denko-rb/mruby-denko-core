@@ -44,15 +44,13 @@ module Denko
           return nil
         end
 
-        callback_mutex.synchronize do
-          @callbacks.each_value do |array|
-            array.each do |callback|
-              callback.call(filtered_data)
-            end
+        @callbacks.each_value do |array|
+          array.each do |callback|
+            callback.call(filtered_data)
           end
-          # Remove one-time callbacks added by #read.
-          @callbacks.delete(:read)
         end
+        # Remove one-time callbacks added by #read.
+        @callbacks.delete(:read)
 
         update_state(filtered_data)
         filtered_data
