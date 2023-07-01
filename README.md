@@ -1,9 +1,17 @@
 # mruby-denko-core
 
-Core Denko functionality for mruby.
+Core Denko functionality for mruby, aiming for an interface as close to the [CRuby gem](https://github.com/denko-rb/denko) as possible.
 
-Implements the `Denko` modules/classes listed below, with interfaces as close to the [CRuby gem](https://github.com/denko-rb/denko) as possible.
+Implements 5 low-level GPIO features:
+- Digital Input / Output
+- Analog Input / Output
+- PWM Ouput
 
+As well as:
+- Peripherals which depend on **only** these features
+- Shared peripheral functionality, in `Denko::Behaviors`
+
+### Modules/Classes Implemented
 - Version
 - Behaviors
   - State
@@ -15,19 +23,32 @@ Implements the `Denko` modules/classes listed below, with interfaces as close to
   - OutputPin
   - MultiPin
 - DigitalIO
-  - Input
+  - Input (only `#read`, no `#poll` or `#listen` yet)
   - Output
 - AnalogIO
-  - Input
+  - Input (only `#read`, no `#poll` or `#listen` yet)
   - Output
 - PulseIO
   - PWMOutput
 - LED
-  - Base (`LED#new` aliases to `LED::Base.new` like CRuby)
+  - Base (`LED#new` aliases to `LED::Base.new`)
   - RGB
 - Motor
   - L298 (or other full-bridge driver with same interface)
-  - Stepper (EasyDriver or compatible interface)
+  - Stepper (EasyDriver or other driver with compatible interface)
+  
+### To Be Implemented
+- DigitalIO
+  - Button
+  - RotaryEncoder
+- PulseIO
+  - Buzzer
+- LED
+  - SevenSegment
+- Display
+  - HD44780
+- Motor
+  - Servo / ESC
 
 ## Usage
 
@@ -37,7 +58,8 @@ See [mruby-denko](https://github.com/denko-rb/mruby-denko) for templates.
 
 - No multithreading, so no polling or listening in a separate thread.
 - No mutexes
-- `Component#new` will default to `$board` when `board:` argument not given.
+- `Component#new` defaults to `$board` if `board:` not given.
+- Board gems should define `$board` as an instance after loading.
 
 ## Dependencies
 
