@@ -21,7 +21,7 @@ module Denko
       def read(&block)
         add_callback(:read, &block) if block_given?
         value = board.digital_read(pin)
-        self.update(value)
+        self.update(value) if value != state
       end
       
       #
