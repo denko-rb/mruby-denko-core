@@ -3,6 +3,7 @@
 #   No Threaded, so no #interrupt_with
 #   No Callbacks or reading initial state, so no #after_initialize, no #pre_callback_filter
 #     Maybe default to :input_output mode to make it readable?
+#   State is set through instance variable instead of #state= method. Don't care about mutex.
 #
 module Denko
   module DigitalIO
@@ -10,8 +11,8 @@ module Denko
       include Behaviors::OutputPin
 
       def digital_write(value)
-        board.digital_write(pin, value)
-        self.state = value
+        @board.digital_write(@pin, value)
+        @state = value
       end
       
       alias :write :digital_write
