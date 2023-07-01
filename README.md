@@ -35,6 +35,7 @@ As well as:
 - LED
   - Base (`LED#new` aliases to `LED::Base.new`)
   - RGB
+  - SevenSegment
 - Motor
   - L298 (or other full-bridge driver with same interface)
   - Stepper (EasyDriver or other driver with compatible interface)
@@ -42,8 +43,6 @@ As well as:
 ### To Be Implemented
 - DigitalIO
   - RotaryEncoder
-- LED
-  - SevenSegment
 - Display
   - HD44780
 - Motor

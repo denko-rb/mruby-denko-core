@@ -60,6 +60,7 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
     # LED
     "#{dir}/mrblib/denko/led/base.rb",
     "#{dir}/mrblib/denko/led/rgb.rb",
+    "#{dir}/mrblib/denko/led/seven_segment.rb",
     
     # Motor
     "#{dir}/mrblib/denko/motor/l298.rb",
