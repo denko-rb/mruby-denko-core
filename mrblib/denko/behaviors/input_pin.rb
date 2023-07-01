@@ -16,6 +16,7 @@ module Denko
         initial_mode = :input_pullup          if options[:pullup]
         initial_mode = :input_pulldown        if options[:pulldown]
         initial_mode = :input_pullup_pulldown if options[:pullup_pulldown]
+        initial_mode = :input_pullup_pulldown if options[:pullup] && options[:pulldown]
 
         # If user was explicit about mode, just use that.
         initial_mode = options[:mode]  if options[:mode]
