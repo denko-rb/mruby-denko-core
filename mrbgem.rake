@@ -47,6 +47,7 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
     # DigitalIO
     "#{dir}/mrblib/denko/digital_io/input.rb",
     "#{dir}/mrblib/denko/digital_io/output.rb",
+    "#{dir}/mrblib/denko/digital_io/button.rb",
     
     # AnalogIO
     "#{dir}/mrblib/denko/analog_io/input.rb",

@@ -25,6 +25,7 @@ As well as:
 - DigitalIO
   - Input (only `#read`, no `#poll` or `#listen` yet)
   - Output
+  - Button
 - AnalogIO
   - Input (only `#read`, no `#poll` or `#listen` yet)
   - Output
@@ -39,7 +40,6 @@ As well as:
   
 ### To Be Implemented
 - DigitalIO
-  - Button
   - RotaryEncoder
 - PulseIO
   - Buzzer
