@@ -31,6 +31,7 @@ As well as:
   - Output
 - PulseIO
   - PWMOutput
+  - Buzzer
 - LED
   - Base (`LED#new` aliases to `LED::Base.new`)
   - RGB
@@ -41,8 +42,6 @@ As well as:
 ### To Be Implemented
 - DigitalIO
   - RotaryEncoder
-- PulseIO
-  - Buzzer
 - LED
   - SevenSegment
 - Display
