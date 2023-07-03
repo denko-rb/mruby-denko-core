@@ -26,7 +26,7 @@ module Denko
       end
       
       def toggle
-        state == 1 ? digital_write(1) : digital_write(0)
+        state == 1 ? digital_write(0) : digital_write(1)
       end
       
       alias :off :low
