@@ -5,14 +5,16 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   spec.authors = 'vickash'
   spec.version = Denko::VERSION
   
-  # Core dependencies.
+  # Surely dependent on
+  spec.add_dependency('mruby-compiler')
+  spec.add_dependency('mruby-io')
   spec.add_dependency('mruby-method')
-  
+
+  # Might not be dependent?
   spec.add_dependency('mruby-array-ext')
   spec.add_dependency('mruby-bigint')
   spec.add_dependency('mruby-class-ext')
   spec.add_dependency('mruby-compar-ext')
-  spec.add_dependency('mruby-compiler')
   spec.add_dependency('mruby-enum-chain')
   spec.add_dependency('mruby-enum-ext')
   spec.add_dependency('mruby-enumerator')
