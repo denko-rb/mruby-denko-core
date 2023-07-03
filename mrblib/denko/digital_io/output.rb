@@ -18,22 +18,22 @@ module Denko
       alias :write :digital_write
 
       def low
-        digital_write(board.low)
+        digital_write(0)
       end
 
       def high
-        digital_write(board.high)
+        digital_write(1)
       end
       
       def toggle
-        state == board.low ? high : low
+        state == 1 ? digital_write(1) : digital_write(0)
       end
       
       alias :off :low
       alias :on  :high
       
-      def high?; state == board.high end
-      def low?;  state == board.low  end
+      def high?; state == 1 end
+      def low?;  state == 0 end
       
       alias :on?  :high?
       alias :off? :low?

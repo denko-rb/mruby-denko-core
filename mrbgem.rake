@@ -7,8 +7,10 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   
   # Surely dependent on
   spec.add_dependency('mruby-compiler')
-  spec.add_dependency('mruby-io')
+  spec.add_dependency('mruby-toplevel-ext')
   spec.add_dependency('mruby-method')
+  spec.add_dependency('mruby-io')
+  spec.add_dependency('mruby-print')
 
   # Might not be dependent?
   spec.add_dependency('mruby-array-ext')
@@ -24,13 +26,11 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   spec.add_dependency('mruby-metaprog')
   spec.add_dependency('mruby-object-ext')
   spec.add_dependency('mruby-objectspace')
-  spec.add_dependency('mruby-print')
   spec.add_dependency('mruby-range-ext')
   spec.add_dependency('mruby-set')
   spec.add_dependency('mruby-string-ext')
   spec.add_dependency('mruby-struct')
   spec.add_dependency('mruby-symbol-ext')
-  spec.add_dependency('mruby-toplevel-ext')
   
   # Include files in the right order.
   spec.rbfiles = [
