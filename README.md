@@ -11,7 +11,8 @@ As well as:
 - Peripherals which depend on **only** these features
 - Shared peripheral functionality, in `Denko::Behaviors`
 
-### Modules/Classes Implemented
+### Implemented in This Gem
+
 - Version
 - Behaviors
   - State
@@ -40,11 +41,15 @@ As well as:
   - L298 (or other full-bridge driver with same interface)
   - Stepper (EasyDriver or other driver with compatible interface)
   
+### Implemented in Dependent Gems
+
+- Display
+  - HD44780 - `mruby-denko-hd44780` - [Link](https://github.com/denko-rb/mruby-denko-hd44780)
+  
 ### To Be Implemented
+
 - DigitalIO
   - RotaryEncoder
-- Display
-  - HD44780
 - Motor
   - Servo / ESC
 
