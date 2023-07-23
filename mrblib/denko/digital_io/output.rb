@@ -14,7 +14,6 @@ module Denko
         @board.digital_write(@pin, value)
         @state = value
       end
-      
       alias :write :digital_write
 
       def low

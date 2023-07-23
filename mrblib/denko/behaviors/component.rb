@@ -22,7 +22,7 @@ module Denko
       end
       
       def micro_delay(duration)
-        # board.micro_delay(duration)
+        board.micro_delay(duration)
       end
   
       def initialize_board(options={})
