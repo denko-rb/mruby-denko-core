@@ -10,7 +10,7 @@ MRuby::Gem::Specification.new('mruby-denko-core') do |spec|
   spec.add_dependency('mruby-toplevel-ext')
   spec.add_dependency('mruby-method')
   spec.add_dependency('mruby-io')
-  spec.add_dependency('mruby-print')
+  # spec.add_dependency('mruby-print')
 
   # Might not be dependent?
   spec.add_dependency('mruby-array-ext')
